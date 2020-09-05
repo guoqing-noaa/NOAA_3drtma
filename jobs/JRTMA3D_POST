@@ -156,8 +156,9 @@ export AIRCRAFT_REJECT=${AIRCRAFT_REJECT:-"${FIXrtma3d}/gsi"}
 export SFCOBS_PROVIDER=${SFCOBS_PROVIDER:-"${FIXrtma3d}/gsi"}
 
 ##########################################################
-
+if [ "${envir}" != "esrl" ]; then #WCOSS
 #   Link the path to the working UPP directory #tmp.debug do we need this?
+
     export DATA_RUNDIR=${DATA_RUNDIR:-"${DATAROOT}/${envir}/${RUN}.${PDY}${cyc}${subcyc}"}
     if [ ! -d "${DATA_RUNDIR}" ] ; then
         mkdir -p ${DATA_RUNDIR}
@@ -165,6 +166,7 @@ export SFCOBS_PROVIDER=${SFCOBS_PROVIDER:-"${FIXrtma3d}/gsi"}
     export DATA_POST=${DATA_POST:-"${DATA_RUNDIR}/postprd"}
     ${RM} -rf ${DATA_POST}
     ${LN} -s  ${DATA}  ${DATA_POST}
+fi
 
 ######################
 # Execute the script.

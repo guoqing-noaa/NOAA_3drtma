@@ -115,10 +115,10 @@ if [ ! -d "${GESINhrrr_rtma3d}" ] ; then
   echo " Directory of HRRRs fgs data does NOT exist. Job abort!"
   err_exit
 fi
-export COMINHRRRDAS=/gpfs/hps/nco/ops/nwges/para/hrrr/hrrrdasges
+
 ### 3DRTMA GSIANL Products (netcdf)
 export COMOUTgsi_rtma3d=${COMOUTgsi_rtma3d:-"${COMOUT}/gsiprd.${cycle}"}
-export COMINhrrrdas=${COMINhrrrdas:-"${COMINHRRRDAS}"}
+
 if [ ! -d "${COMIN}" ] ; then
    mkdir -p $COMIN
 fi
